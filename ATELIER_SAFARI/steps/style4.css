@@ -1,0 +1,45 @@
+img {
+    width: 200px;
+    margin:auto;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+footer {
+    clear: both; 
+}
+
+section {
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+    row-gap: 30px;
+    text-align: center;
+    margin: auto;
+    max-width: 80%;
+    padding-top: 50px;
+}
+header, footer {
+    background-color: antiquewhite;
+
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+section div {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+section div img:hover {
+    border-radius: 30px;
+    transform: scale(1.3);
+}

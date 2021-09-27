@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Introduction dev</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='style5.css'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <header>
+        <img src="https://safaridesmetiers.tech/wp-content/uploads/2021/07/Logo-Safari-2021.png">
+        <button class="active" onclick="filtrer('')">Tous</button>    
+        <button onclick="filtrer('carnivore')">Carnivores</button>    
+        <button onclick="filtrer('herbivore')">Herbivores</button>    
+        <button onclick="filtrer('omnivore')">Omnivores</button>    
+
+    </header>
+    
+    <section>
+        <div class="card carnivore">
+            <img src='https://www.sciencesetavenir.fr/assets/img/2020/10/08/cover-r4x3w1000-5f7ecee034fc7-lion-3576045-1920.jpg' onclick="openModal('LION')">
+            <h4>Lion</h4>
+            <a href='https://fr.wikipedia.org/wiki/Lion'>En savoir +</a>
+        </div>
+
+        <div class="card herbivore">
+            <img src='https://i.pinimg.com/originals/32/bc/8c/32bc8ca0a4cd43112e4fa16f4c19edb1.jpg' onclick="openModal('ELEPHANT')">
+            <h4>Eléphant</h4>
+            <a href='https://fr.wikipedia.org/wiki/Elephantidae'>En savoir +</a>
+        </div>
+
+        <div class="card carnivore">
+            <img src='https://lemagdesanimaux.ouest-france.fr/images/dossiers/2020-04/hyene-1-151727.jpg' onclick="openModal('HYENE')">
+            <h4>Hyène</h4>
+            <a href='https://fr.wikipedia.org/wiki/Hyene'>En savoir +</a>
+        </div>
+
+        <div class="card carnivore">
+            <img src='https://blog.makila.fr/animaux-safari-afrique/wp-content/gallery/suricate/suricate-photo-p-de-wilde.jpg' onclick="openModal('SURICATE')">
+            <h4>Suricate</h4>
+            <a href='https://fr.wikipedia.org/wiki/Suricate'>En savoir +</a>
+        </div>
+
+        <div class="card herbivore">
+            <img src='https://img.ohmymag.com/article/girafe/girafe-sa-langue-fait-50cm_078e6bd8e6a5236796c227b3e4ee2ff57f86c6af.jpg' onclick="openModal('GIRAFE')">
+            <h4>Girafe</h4>
+            <a href='https://fr.wikipedia.org/wiki/Girafe'>En savoir +</a>
+        </div>
+
+        <div class="card omnivore">
+            <img src='https://static9.depositphotos.com/1594920/1087/i/600/depositphotos_10879124-stock-photo-young-chimpanzee-simia-troglodytes-6.jpg' onclick="openModal('CHIMPANZE')">
+            <h4>Chimpanzé</h4>
+            <a href='https://fr.wikipedia.org/wiki/Chimpanz%C3%A9'>En savoir +</a>
+        </div>
+
+    </section>
+    <div id="modal">
+        <div class="modal-content">
+            <div class="close-button" onclick="closeModal()">X</div>
+            <div id="dynamic-content">
+            </div>
+        </div>
+    </div>
+    <footer>Safari des métiers 2021</footer>
+    <script src='main5.js'></script>
+</body>
+</html>
