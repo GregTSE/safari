@@ -9,7 +9,7 @@
  * Mise a jour des statuts des boutons
  */
  function updateButtonStatus() {
-    //Suppression 'active' sur bouton courant
+    //Suppression de la classe 'active' sur bouton courant
     var boutonsActifs = document.getElementsByClassName('active');
     boutonsActifs[0].className = boutonsActifs[0].className.replace("active", "");
     //Ajout sur bouton cliqué
@@ -26,8 +26,8 @@ function filtrer(caracteristique) {
 	// itération sur les cartes
 	for (let i = 0; i < cartes.length; i++) {
 		supprimerClasse(cartes[i], "show");
-		// Si la carte possede la caracteristique
-		if (cartes[i].className.indexOf(caracteristique) > -1) {
+		// Si on ne filtre pas, ou que la carte possede la caracteristique, on l'affiche
+		if (caracteristique === "" || cartes[i].className.indexOf(caracteristique) > -1) {
 			ajouterClasse(cartes[i], "show");
 		}
 	}
@@ -47,11 +47,13 @@ function ajouterClasse(element, nom) {
  * Supprime la classe 'nom' de l'élément 'element' si celle-ci est présente
  */
 function supprimerClasse(element, nom) {
-	let arr1;
-	classesArray = element.className.split(" ");
+	// SPLIT divise une chaine de catacteres en un tableau. La division est effectuée en utilisant le motif passé en parametre.
+	let classesArray = element.className.split(" ");
 	while (classesArray.indexOf(nom) > -1) {
+		// SPLICE modifie le tableau a l'index passé en parametre 1,  en supprimant le nombre d'élément passé en parametre 2
 		classesArray.splice(classesArray.indexOf(nom), 1);
 	}
+	// JOIN renvoie une chaine de caracteres en concatenant les elements du tableaux separe par le separateur " " passé en parametre
 	element.className = classesArray.join(" ");
 }
 
@@ -60,6 +62,8 @@ function init() {
 //Ajout de listeners
 let  boutons = document.getElementsByTagName('button');
 for (let i = 0; i < boutons.length; i++) {
+	//Ajout d un observateur d'evenement de type "click" sur chaque bouton.
+	// En cas de détection d un evenement, la fonction updateButtonStatus est appelée.
     boutons[i].addEventListener("click", updateButtonStatus);
 }
 // Par defaut, on ne filtre pas
@@ -70,6 +74,10 @@ filtrer("");
 /**
  * MODAL
  */
+
+/**
+ * Ouverture de la modal
+ */
 function openModal(animal) {
 	createModal(animal);
 	let modal = document.getElementById("modal");
@@ -77,11 +85,17 @@ function openModal(animal) {
 
 }
 
+/**
+ * Fermeture de la modal
+ */
 function closeModal() {
 	let modal = document.getElementById("modal");
 	modal.style.display = "none";
 }
 
+/**
+ * Creation dynamique de la modal
+ */
 function createModal(nomAnimal) {
 	let animal = getDetails(nomAnimal);
 	let element = document.getElementById("dynamic-content");
